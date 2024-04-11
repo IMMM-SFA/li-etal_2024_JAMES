@@ -4,7 +4,7 @@ _your zenodo badge here_
 
 **Structural uncertainty in the sensitivity of urban temperatures to anthropogenic heat flux**
 
-Dan Li<sup>1\*</sup>, Ting Sun<sup>2</sup>, Jiachuan Yang <sup>3</sup>, Ning Zhang <sup>4</sup>, Pouya Vahmani <sup>5</sup> and Andrew Jones <sup>5</sup>
+Dan Li<sup>1\*</sup>, Ting Sun<sup>2</sup>, Jiachuan Yang <sup>3</sup>, Ning Zhang <sup>4</sup>, Pouya Vahmani <sup>5</sup>, and Andrew Jones <sup>5</sup>
 
 <sup>1 </sup> Department of Earth and Environment and Department of Mechanical Engineering, Boston University, Boston, USA
 <sup>2 </sup> Institute for Risk and Disaster Reduction, University College London, London, UK
@@ -26,22 +26,23 @@ Li et al. (in submission). Structural uncertainty in the sensitivity of urban te
 
 ## Code reference
 
-https://github.com/DanLi-BU/WRF.git (tag: AH final)
+https://github.com/DanLi-BU/WRF/tree/WRF_AH (tag: AH_final)
 
 ## Data reference
 
 ### Input data
 
 https://www2.mmm.ucar.edu/wrf/users/download/get_sources_wps_geog.html
+https://www.ncei.noaa.gov/products/weather-climate-models/north-american-regional
 
 ### Output data
 
 
 
 ## Contributing modeling software
-| Model | Version | Repository Link | DOI |
+| Model | Version | Repository Link | Tag |
 |-------|---------|-----------------|-----|
-| WRF | 4.2.2 | https://github.com/DanLi-BU/WRF.git |  |
+| WRF | 4.2.2 | https://github.com/DanLi-BU/WRF/tree/WRF_AH | AH_final |
 
 ## Reproduce my experiment
 Fill in detailed info here or link to other documentation that is a thorough walkthrough of how to use what is in this repository to reproduce your experiment.
@@ -55,6 +56,11 @@ Fill in detailed info here or link to other documentation that is a thorough wal
 | --- | --- | --- |
 | `namelist.wps` | namelist to run the WPS part of my experiment |  |
 | `namelist.input` | namelist to run the WRF part of my experiment |  |
+| `URBPARM.TBL` | an example of URBPARM.TBL where the 3 key entires to change are AHOPTION, ROOF_TO_CANOPY_AIR_OPTION, and CH_SCHEME |  |
+
+3.1 AHOPTION = 4 in URBPARM.TBL corresponds to method 1 in the manuscript, AHOPTION = 3 corresponds to method 2, AHOPTION = 2 corresponds to method 3, AHOPTION = 5 corresponds to revised method 1
+3.2 ROOF_TO_CANOPY_AIR_OPTION = 0 in URBPARM.TBL corresponds to cases 1 and 3 in the manuscript, ROOF_TO_CANOPY_AIR_OPTION = 1 corresponds to cases 2 and 4
+3.3 CH_SCHEME = 100 in URBPARM.TBL corresponds to 3 in the manuscript, CH_SCHEME = 2 corresponds to cases 1 and 2
 
 ## Reproduce my figures
 Use the scripts found in the `figures` directory to reproduce the figures used in this publication. See details in the readme.docx document in the figures directory.
