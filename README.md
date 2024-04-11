@@ -58,9 +58,9 @@ Fill in detailed info here or link to other documentation that is a thorough wal
 | `namelist.input` | namelist to run the WRF part of my experiment |  |
 | `URBPARM.TBL` | an example of URBPARM.TBL where the 3 key entires to change are AHOPTION, ROOF_TO_CANOPY_AIR_OPTION, and CH_SCHEME |  |
 
-3.1 AHOPTION = 4 in URBPARM.TBL corresponds to method 1 in the manuscript, AHOPTION = 3 corresponds to method 2, AHOPTION = 2 corresponds to method 3, AHOPTION = 5 corresponds to revised method 1
-3.2 ROOF_TO_CANOPY_AIR_OPTION = 0 in URBPARM.TBL corresponds to cases 1 and 3 in the manuscript, ROOF_TO_CANOPY_AIR_OPTION = 1 corresponds to cases 2 and 4
-3.3 CH_SCHEME = 100 in URBPARM.TBL corresponds to 3 in the manuscript, CH_SCHEME = 2 corresponds to cases 1 and 2
+4. AHOPTION = 4 in URBPARM.TBL corresponds to method 1 in the manuscript, AHOPTION = 3 corresponds to method 2, AHOPTION = 2 corresponds to method 3, AHOPTION = 5 corresponds to revised method 1
+5. ROOF_TO_CANOPY_AIR_OPTION = 0 in URBPARM.TBL corresponds to cases 1 and 3 in the manuscript, ROOF_TO_CANOPY_AIR_OPTION = 1 corresponds to cases 2 and 4
+6. CH_SCHEME = 100 in URBPARM.TBL corresponds to 3 in the manuscript, CH_SCHEME = 2 corresponds to cases 1 and 2
 
 ## Reproduce my figures
 Use the scripts found in the `figures` directory to reproduce the figures used in this publication. See details in the readme.docx document in the figures directory.
