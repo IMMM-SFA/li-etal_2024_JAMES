@@ -187,7 +187,7 @@ title_font_size = 14       # Font size for the subplot titles
 tick_label_font_size = 12  # Font size for tick labels
 legend_font_size = 12      # Font size for legend
 
-subplot_titles = ["(a) Case 1", "(b) Case 2", "(c) Case 3", "(d) Case 4"]
+subplot_titles = ["(a) SV 1", "(b) SV 2", "(c) SV 3", "(d) SV 4"]
 
 # Create a 2x2 grid of subplots
 fig, axs = plt.subplots(2, 2, figsize=(16, 12))

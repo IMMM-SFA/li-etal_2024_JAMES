@@ -28,7 +28,7 @@ variables_to_read = ["TC_URB", "TB_URB", "TG_URB", "TA_URB", "TR_URB",  "TSK", "
                      "HFX","SH_URB","CHS_URB2D", "CHS2_URB2D"]
 
 
-AH_option_to_study = 2
+AH_option_to_study = 5
 
 
 if AH_option_to_study == 2 : 
@@ -704,7 +704,7 @@ colors = ['blue', 'green', 'red', 'yellow', 'purple', 'orange', 'black']  # Modi
 
 colors = ['blue', 'green', 'red', 'yellow', 'purple', 'orange', 'black']
 utype = "all"
-subplot_labels = ['(a)', '(b)', '(c)', '(d)']
+subplot_labels = ['(a) SV 1', '(b) SV 2', '(c) SV 3', '(d) SV 4']
 
 # Set font sizes
 axis_label_font_size = 14  # Font size for x and y axis labels
@@ -719,7 +719,7 @@ for i, (case, ax) in enumerate(zip(datasets.keys(), axes)):
     std_devs = decomposed_std_dev[(case, utype)]
     print(values)
     ax.bar(labels, values, color=colors, yerr=std_devs, capsize=5)
-    full_title = f"{subplot_labels[i]} {case}"
+    full_title = f"{subplot_labels[i]}"
     ax.set_title(full_title, fontsize=title_font_size)    
     ax.set_xticklabels(labels, rotation=45, ha="right", fontsize=tick_label_font_size)
     if AH_option_to_study == 2 : 
@@ -900,7 +900,7 @@ colors = ['blue', 'green', 'red', 'yellow', 'purple', 'orange', 'black']  # Modi
 
 colors = ['blue', 'green', 'red', 'yellow', 'purple', 'orange', 'black']
 utype = "all"
-subplot_labels = ['(a)', '(b)', '(c)', '(d)']
+subplot_labels = ['(a) SV 1', '(b) SV 2', '(c) SV 3', '(d) SV 4']
 
 # Set font sizes
 axis_label_font_size = 14  # Font size for x and y axis labels
@@ -915,7 +915,7 @@ for i, (case, ax) in enumerate(zip(datasets.keys(), axes)):
     std_devs = decomposed_std_dev[(case, utype)]
     print(values)
     ax.bar(labels, values, color=colors, yerr=std_devs, capsize=5)
-    full_title = f"{subplot_labels[i]} {case}"
+    full_title = f"{subplot_labels[i]}"
     ax.set_title(full_title, fontsize=title_font_size)    
     ax.set_xticklabels(labels, rotation=45, ha="right", fontsize=tick_label_font_size)
     if AH_option_to_study == 2 : 
@@ -943,172 +943,172 @@ elif AH_option_to_study == 3 :
             
 #%% Setup the plot
 
-# Set colormap
-from matplotlib.colors import LinearSegmentedColormap
-import matplotlib
-from mpl_toolkits.axes_grid1 import make_axes_locatable
+# # Set colormap
+# from matplotlib.colors import LinearSegmentedColormap
+# import matplotlib
+# from mpl_toolkits.axes_grid1 import make_axes_locatable
 
 
 
-def create_colormap():
-    # Calculate the proportion of the colorbar that should be blue
-    negative_proportion = 0.002 / (0.02 + 0.002)
-    positive_proportion = 1 - negative_proportion
-    #print(negative_proportion)
-    # Define the starting point for the Reds and Blues_r to match the intensity
-    blue_start = 1 - negative_proportion  # Start from the lightest blue
-    red_start = 0.0  # Start from a lighter red to match the blue intensity
+# def create_colormap():
+#     # Calculate the proportion of the colorbar that should be blue
+#     negative_proportion = 0.002 / (0.02 + 0.002)
+#     positive_proportion = 1 - negative_proportion
+#     #print(negative_proportion)
+#     # Define the starting point for the Reds and Blues_r to match the intensity
+#     blue_start = 1 - negative_proportion  # Start from the lightest blue
+#     red_start = 0.0  # Start from a lighter red to match the blue intensity
     
-    # Sample colors from the Blues_r and Reds colormaps
-    blues = plt.cm.Blues_r(np.linspace(blue_start, 1.0, int(256 * negative_proportion)))  # Light to dark blue
-    whites = np.array([1.0, 1.0, 1.0, 1.0]).reshape(1,4)  # Pure white color
-    reds = plt.cm.Reds(np.linspace(red_start, 1.0, int(256 * positive_proportion)))  # Light to dark red
+#     # Sample colors from the Blues_r and Reds colormaps
+#     blues = plt.cm.Blues_r(np.linspace(blue_start, 1.0, int(256 * negative_proportion)))  # Light to dark blue
+#     whites = np.array([1.0, 1.0, 1.0, 1.0]).reshape(1,4)  # Pure white color
+#     reds = plt.cm.Reds(np.linspace(red_start, 1.0, int(256 * positive_proportion)))  # Light to dark red
     
-    # Combine them into a single array
-    colors = np.vstack((blues, whites, reds))
+#     # Combine them into a single array
+#     colors = np.vstack((blues, whites, reds))
     
-    # Create a new colormap
-    cmap = LinearSegmentedColormap.from_list('CustomBluesReds', colors)
+#     # Create a new colormap
+#     cmap = LinearSegmentedColormap.from_list('CustomBluesReds', colors)
     
-    return cmap
+#     return cmap
 
-custom_cmap = create_colormap()
+# custom_cmap = create_colormap()
 
 
-fig, axs = plt.subplots(2, 2, figsize=(12, 10))  # Adjust the size as needed
-axs = axs.flatten()  # Flatten to easily index them in a loop
+# fig, axs = plt.subplots(2, 2, figsize=(12, 10))  # Adjust the size as needed
+# axs = axs.flatten()  # Flatten to easily index them in a loop
 
-case_titles = ["Case 1", "Case 2", "Case 3", "Case 4"]
-colorbar_ticks = np.arange(-0.002, 0.021, 0.002)
-font_size = 10  # Example font size, adjust as necessary
+# case_titles = ["Case 1", "Case 2", "Case 3", "Case 4"]
+# colorbar_ticks = np.arange(-0.002, 0.021, 0.002)
+# font_size = 10  # Example font size, adjust as necessary
 
-# Plot TA_URB for the first folder of all 4 cases, where UTYPE_URB != 0
-for i, case in enumerate(case_titles):
-    ds1 = datasets[case][0]  # Access the first dataset for each case
-    ds2 = datasets[case][1]  # Access the second dataset for each case
+# # Plot TA_URB for the first folder of all 4 cases, where UTYPE_URB != 0
+# for i, case in enumerate(case_titles):
+#     ds1 = datasets[case][0]  # Access the first dataset for each case
+#     ds2 = datasets[case][1]  # Access the second dataset for each case
     
-    # Apply mask where UTYPE_URB != 0 for both datasets
-    mask1 = ds1['UTYPE_URB'] != 0
-    mask2 = ds2['UTYPE_URB'] != 0
+#     # Apply mask where UTYPE_URB != 0 for both datasets
+#     mask1 = ds1['UTYPE_URB'] != 0
+#     mask2 = ds2['UTYPE_URB'] != 0
 
-    # Ensure TA_URB is only considered where UTYPE_URB != 0, then calculate the difference
-    ta_urb_diff = ((ds2['TA_URB'].where(mask2)).mean(dim='Time') - (ds1['TA_URB'].where(mask1)).mean(dim='Time'))/AH_value
+#     # Ensure TA_URB is only considered where UTYPE_URB != 0, then calculate the difference
+#     ta_urb_diff = ((ds2['TA_URB'].where(mask2)).mean(dim='Time') - (ds1['TA_URB'].where(mask1)).mean(dim='Time'))/AH_value
     
-    ax = axs[i]
-    # Use the custom colormap with the adjusted scale
-    norm = matplotlib.colors.Normalize(vmin=-0.002, vmax=0.02)
-    im = ta_urb_diff.plot(ax=ax, cmap=custom_cmap, norm=norm, add_colorbar=False)
+#     ax = axs[i]
+#     # Use the custom colormap with the adjusted scale
+#     norm = matplotlib.colors.Normalize(vmin=-0.002, vmax=0.02)
+#     im = ta_urb_diff.plot(ax=ax, cmap=custom_cmap, norm=norm, add_colorbar=False)
 
-    # Create a separate colorbar for each subplot
-    divider = make_axes_locatable(ax)
-    cax = divider.append_axes("right", size="5%", pad=0.1)
-    cbar = plt.colorbar(im, cax=cax, ticks=colorbar_ticks)
-    cbar.ax.set_yticklabels(['{:.3f}'.format(tick) for tick in colorbar_ticks], fontsize=font_size)
+#     # Create a separate colorbar for each subplot
+#     divider = make_axes_locatable(ax)
+#     cax = divider.append_axes("right", size="5%", pad=0.1)
+#     cbar = plt.colorbar(im, cax=cax, ticks=colorbar_ticks)
+#     cbar.ax.set_yticklabels(['{:.3f}'.format(tick) for tick in colorbar_ticks], fontsize=font_size)
 
-    ax.set_title(case)
-    ax.set_xlabel("X-axis label")  # Adjust as necessary
-    ax.set_ylabel("Y-axis label")  # Adjust as necessary
-    # Adjust tick label sizes if needed
-    ax.tick_params(axis='both', labelsize=font_size)
+#     ax.set_title(case)
+#     ax.set_xlabel("X-axis label")  # Adjust as necessary
+#     ax.set_ylabel("Y-axis label")  # Adjust as necessary
+#     # Adjust tick label sizes if needed
+#     ax.tick_params(axis='both', labelsize=font_size)
 
-# Adjust layout
-plt.tight_layout()
+# # Adjust layout
+# plt.tight_layout()
 
-# Show plot
-plt.show()
+# # Show plot
+# plt.show()
 
-fig, axs = plt.subplots(2, 2, figsize=(12, 10))  # Adjust the size as needed
-axs = axs.flatten()  # Flatten to easily index them in a loop
+# fig, axs = plt.subplots(2, 2, figsize=(12, 10))  # Adjust the size as needed
+# axs = axs.flatten()  # Flatten to easily index them in a loop
 
-case_titles = ["Case 1", "Case 2", "Case 3", "Case 4"]
-colorbar_ticks = np.arange(0.2, 0.91, 0.1)  # Note the 0.9 as stop value to include 0.8 in the output
-font_size = 10  # Example font size, adjust as necessary
+# case_titles = ["Case 1", "Case 2", "Case 3", "Case 4"]
+# colorbar_ticks = np.arange(0.2, 0.91, 0.1)  # Note the 0.9 as stop value to include 0.8 in the output
+# font_size = 10  # Example font size, adjust as necessary
 
-# Plot TA_URB for the first folder of all 4 cases, where UTYPE_URB != 0
-for i, case in enumerate(case_titles):
-    ds1 = datasets[case][0]  # Access the first dataset for each case
-    ds2 = datasets[case][1]  # Access the second dataset for each case
+# # Plot TA_URB for the first folder of all 4 cases, where UTYPE_URB != 0
+# for i, case in enumerate(case_titles):
+#     ds1 = datasets[case][0]  # Access the first dataset for each case
+#     ds2 = datasets[case][1]  # Access the second dataset for each case
     
-    # Apply mask where UTYPE_URB != 0 for both datasets
-    mask1 = ds1['UTYPE_URB'] != 0
-    mask2 = ds2['UTYPE_URB'] != 0
+#     # Apply mask where UTYPE_URB != 0 for both datasets
+#     mask1 = ds1['UTYPE_URB'] != 0
+#     mask2 = ds2['UTYPE_URB'] != 0
 
-    # Ensure TA_URB is only considered where UTYPE_URB != 0, then calculate the difference
-    ta_urb_diff = ((ds2['HFX'].where(mask2)).mean(dim='Time') - (ds1['HFX'].where(mask1)).mean(dim='Time'))/AH_value
+#     # Ensure TA_URB is only considered where UTYPE_URB != 0, then calculate the difference
+#     ta_urb_diff = ((ds2['HFX'].where(mask2)).mean(dim='Time') - (ds1['HFX'].where(mask1)).mean(dim='Time'))/AH_value
     
-    ax = axs[i]
-    # Use the custom colormap with the adjusted scale
-    norm = matplotlib.colors.Normalize(vmin=0.2, vmax=0.9)
-    im = ta_urb_diff.plot(ax=ax, cmap='Reds', norm = norm, add_colorbar=False)
+#     ax = axs[i]
+#     # Use the custom colormap with the adjusted scale
+#     norm = matplotlib.colors.Normalize(vmin=0.2, vmax=0.9)
+#     im = ta_urb_diff.plot(ax=ax, cmap='Reds', norm = norm, add_colorbar=False)
 
-    # Create a separate colorbar for each subplot
-    divider = make_axes_locatable(ax)
-    cax = divider.append_axes("right", size="5%", pad=0.1)
-    cbar = plt.colorbar(im, cax=cax, ticks=colorbar_ticks)
-    cbar.ax.set_yticklabels(['{:.1f}'.format(tick) for tick in colorbar_ticks], fontsize=font_size)
+#     # Create a separate colorbar for each subplot
+#     divider = make_axes_locatable(ax)
+#     cax = divider.append_axes("right", size="5%", pad=0.1)
+#     cbar = plt.colorbar(im, cax=cax, ticks=colorbar_ticks)
+#     cbar.ax.set_yticklabels(['{:.1f}'.format(tick) for tick in colorbar_ticks], fontsize=font_size)
 
-    ax.set_title(case)
-    ax.set_xlabel("X-axis label")  # Adjust as necessary
-    ax.set_ylabel("Y-axis label")  # Adjust as necessary
-    # Adjust tick label sizes if needed
-    ax.tick_params(axis='both', labelsize=font_size)
+#     ax.set_title(case)
+#     ax.set_xlabel("X-axis label")  # Adjust as necessary
+#     ax.set_ylabel("Y-axis label")  # Adjust as necessary
+#     # Adjust tick label sizes if needed
+#     ax.tick_params(axis='both', labelsize=font_size)
 
-# Adjust layout
-plt.tight_layout()
+# # Adjust layout
+# plt.tight_layout()
 
-# Show plot
-plt.show()
+# # Show plot
+# plt.show()
 
-# Calculate mean differences for each case
-mean_differences = []
-for case in case_titles:
-    ds1 = datasets[case][0]  # First dataset for each case
-    ds2 = datasets[case][1]  # Second dataset for each case
+# # Calculate mean differences for each case
+# mean_differences = []
+# for case in case_titles:
+#     ds1 = datasets[case][0]  # First dataset for each case
+#     ds2 = datasets[case][1]  # Second dataset for each case
     
-    # Mask where UTYPE_URB != 0
-    mask1 = ds1['UTYPE_URB'] != 0
-    mask2 = ds2['UTYPE_URB'] != 0
+#     # Mask where UTYPE_URB != 0
+#     mask1 = ds1['UTYPE_URB'] != 0
+#     mask2 = ds2['UTYPE_URB'] != 0
     
-    # Calculate normalized difference
-    normalized_diff = ((ds2['TA_URB'].where(mask2)).mean() - (ds1['TA_URB'].where(mask1)).mean())/AH_value
-    mean_differences.append(normalized_diff.values)
+#     # Calculate normalized difference
+#     normalized_diff = ((ds2['TA_URB'].where(mask2)).mean() - (ds1['TA_URB'].where(mask1)).mean())/AH_value
+#     mean_differences.append(normalized_diff.values)
 
-# Create a bar plot
-fig, ax = plt.subplots(figsize=(8, 6))
-x_pos = np.arange(len(case_titles))
-ax.bar(x_pos, mean_differences, color='skyblue')
-ax.set_xticks(x_pos)
-ax.set_xticklabels(case_titles)
-ax.set_ylabel('Normalized Mean Difference of TA_URB')
-ax.set_title('Comparison of Normalized Mean Difference of TA_URB Across Cases')
-ax.tick_params(axis='x', rotation=45)  # Rotate case titles for better visibility
+# # Create a bar plot
+# fig, ax = plt.subplots(figsize=(8, 6))
+# x_pos = np.arange(len(case_titles))
+# ax.bar(x_pos, mean_differences, color='skyblue')
+# ax.set_xticks(x_pos)
+# ax.set_xticklabels(case_titles)
+# ax.set_ylabel('Normalized Mean Difference of TA_URB')
+# ax.set_title('Comparison of Normalized Mean Difference of TA_URB Across Cases')
+# ax.tick_params(axis='x', rotation=45)  # Rotate case titles for better visibility
 
-plt.tight_layout()
-plt.show()
+# plt.tight_layout()
+# plt.show()
 
-# Calculate mean differences for each case
-mean_differences = []
-for case in case_titles:
-    ds1 = datasets[case][0]  # First dataset for each case
-    ds2 = datasets[case][1]  # Second dataset for each case
+# # Calculate mean differences for each case
+# mean_differences = []
+# for case in case_titles:
+#     ds1 = datasets[case][0]  # First dataset for each case
+#     ds2 = datasets[case][1]  # Second dataset for each case
     
-    # Mask where UTYPE_URB != 0
-    mask1 = ds1['UTYPE_URB'] != 0
-    mask2 = ds2['UTYPE_URB'] != 0
+#     # Mask where UTYPE_URB != 0
+#     mask1 = ds1['UTYPE_URB'] != 0
+#     mask2 = ds2['UTYPE_URB'] != 0
     
-    # Calculate normalized difference
-    normalized_diff = ((ds2['HFX'].where(mask2)).mean() - (ds1['HFX'].where(mask1)).mean())/AH_value
-    mean_differences.append(normalized_diff.values)
+#     # Calculate normalized difference
+#     normalized_diff = ((ds2['HFX'].where(mask2)).mean() - (ds1['HFX'].where(mask1)).mean())/AH_value
+#     mean_differences.append(normalized_diff.values)
 
-# Create a bar plot
-fig, ax = plt.subplots(figsize=(8, 6))
-x_pos = np.arange(len(case_titles))
-ax.bar(x_pos, mean_differences, color='skyblue')
-ax.set_xticks(x_pos)
-ax.set_xticklabels(case_titles)
-ax.set_ylabel('Normalized Mean Difference of HFX')
-ax.set_title('Comparison of Normalized Mean Difference of HFX Across Cases')
-ax.tick_params(axis='x', rotation=45)  # Rotate case titles for better visibility
+# # Create a bar plot
+# fig, ax = plt.subplots(figsize=(8, 6))
+# x_pos = np.arange(len(case_titles))
+# ax.bar(x_pos, mean_differences, color='skyblue')
+# ax.set_xticks(x_pos)
+# ax.set_xticklabels(case_titles)
+# ax.set_ylabel('Normalized Mean Difference of HFX')
+# ax.set_title('Comparison of Normalized Mean Difference of HFX Across Cases')
+# ax.tick_params(axis='x', rotation=45)  # Rotate case titles for better visibility
 
-plt.tight_layout()
-plt.show()
+# plt.tight_layout()
+# plt.show()

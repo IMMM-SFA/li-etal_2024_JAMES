@@ -350,7 +350,7 @@ labels2 = ["Direct", "Sum", "Baseline", "r$_R$, r$_W$, r$_G$", "T$_R$, T$_W$, $T
 
 colors = ['blue', 'green', 'red', 'yellow', 'purple', 'orange', 'black']
 utype = "all"
-subplot_labels = ['(a)', '(b)', '(c)', '(d)']
+subplot_labels = ['(a) SV 1', '(b) SV 2', '(c) SV 3', '(d) SV4']
 
 # Set font sizes
 axis_label_font_size = 14  # Font size for x and y axis labels
@@ -365,7 +365,7 @@ for i, (case, ax) in enumerate(zip(datasets.keys(), axes)):
     std_devs = decomposed_std_dev[(case, utype)]
     
     ax.bar(labels1 if i in [0, 2] else labels2, values, color=colors, yerr=std_devs, capsize=5)
-    full_title = f"{subplot_labels[i]} {case}"
+    full_title = f"{subplot_labels[i]}"
     ax.set_title(full_title, fontsize=title_font_size)    
     ax.set_xticklabels(labels1 if i in [0, 2] else labels2, rotation=45, ha="right", fontsize=tick_label_font_size)
     ax.set_ylim([-0.02, 0.12])  # Adjust as needed based on your data

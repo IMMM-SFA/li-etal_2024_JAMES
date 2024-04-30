@@ -267,7 +267,7 @@ for case, ds_list in datasets.items():
 
 # Assuming datasets, TSK_values, TSK_std_dev, T2_values, T2_std_dev are defined somewhere in your code
 
-labels = ["CASE 1", "CASE 2", "CASE 3", "CASE 4"]
+labels = ["SV 1", "SV 2", "SV 3", "SV 4"]
 colors = ['red', 'blue', 'green', 'purple']
 axis_label_font_size = 14
 title_font_size = 14
