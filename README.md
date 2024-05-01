@@ -45,7 +45,6 @@ https://www.ncei.noaa.gov/products/weather-climate-models/north-american-regiona
 | WRF | 4.2.2 | https://github.com/DanLi-BU/WRF/tree/WRF_AH | AH_final |
 
 ## Reproduce my experiment
-Fill in detailed info here or link to other documentation that is a thorough walkthrough of how to use what is in this repository to reproduce your experiment.
 
 
 1. Install the software components required to conduct the experiement from [Contributing modeling software](#contributing-modeling-software)
