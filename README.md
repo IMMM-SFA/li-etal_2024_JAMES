@@ -1,4 +1,3 @@
-_your zenodo badge here_
 
 # li-etal_2024_james
 
