@@ -6,7 +6,7 @@
 Dan Li<sup>1\*</sup>, Ting Sun<sup>2</sup>, Jiachuan Yang <sup>3</sup>, Ning Zhang <sup>4</sup>, Pouya Vahmani <sup>5</sup>, and Andrew Jones <sup>5</sup>
 
 <sup>1 </sup> Department of Earth and Environment and Department of Mechanical Engineering, Boston University, Boston, USA
-<sup>2 </sup> Institute for Risk and Disaster Reduction, University College London, London, UK
+<sup>2 </sup> Department of Risk and Disaster Reduction, University College London, London, UK
 <sup>3 </sup> Department of Civil and Environmental Engineering, The Hong Kong University of Science and Technology, Hong Kong, China
 <sup>4 </sup> School of Atmospheric Sciences, Nanjing University, Nanjing, China
 <sup>5 </sup> Lawrence Berkeley National Laboratory, Berkeley, USA
@@ -31,28 +31,27 @@ https://github.com/DanLi-BU/WRF/tree/WRF_AH (tag: AH_final)
 
 ### Input data
 
-https://www2.mmm.ucar.edu/wrf/users/download/get_sources_wps_geog.html
-https://www.ncei.noaa.gov/products/weather-climate-models/north-american-regional
+[`wrfinputs_bdy`](./wrfinputs_bdy)
 
 ### Output data
 
 
 
 ## Contributing modeling software
-| Model | Version | Repository Link | Tag |
-|-------|---------|-----------------|-----|
-| WRF | 4.2.2 | https://github.com/DanLi-BU/WRF/tree/WRF_AH | AH_final |
+| Model | Version | Repository Link | Tag | Zenodo |
+|-------|---------|-----------------|-----|-----|
+| WRF | 4.2.2 | https://github.com/DanLi-BU/WRF/tree/WRF_AH | AH_final | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13259039.svg)](https://doi.org/10.5281/zenodo.13259039) |
+
 
 ## Reproduce my experiment
 
 
 1. Install the software components required to conduct the experiement from [Contributing modeling software](#contributing-modeling-software)
 2. Download and install the supporting input data required to conduct the experiement from [Input data](#input-data)
-3. Run the following scripts in the `workflow` directory to re-create this experiment:
+3. Run the following scripts in the [`WRFscripts`](./WRFscripts) directory to re-create this experiment:
 
 | Script Name | Description | How to Run |
 | --- | --- | --- |
-| `namelist.wps` | namelist to run the WPS part of my experiment |  |
 | `namelist.input` | namelist to run the WRF part of my experiment |  |
 | `URBPARM.TBL` | an example of URBPARM.TBL where the 3 key entires to change are AHOPTION, ROOF_TO_CANOPY_AIR_OPTION, and CH_SCHEME |  |
 
@@ -61,4 +60,4 @@ https://www.ncei.noaa.gov/products/weather-climate-models/north-american-regiona
 6. CH_SCHEME = 100 in URBPARM.TBL corresponds to SVs 3 and 4 in the manuscript, CH_SCHEME = 2 corresponds to SVs 1 and 2
 
 ## Reproduce my figures
-Use the scripts found in the `figures` directory to reproduce the figures used in this publication. See details in the readme.docx document in the figures directory.
+Use the scripts found in the [`figures`](./figures) directory to reproduce the figures used in this publication. See details in the [`readme.docx`](./figures/readme.docx) document in the figures directory.
