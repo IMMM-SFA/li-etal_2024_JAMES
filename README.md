@@ -25,7 +25,7 @@ Li et al. (in submission). Structural uncertainty in the sensitivity of urban te
 
 ## Code reference
 
-https://github.com/DanLi-BU/WRF/tree/WRF_AH (tag: AH_final)
+https://github.com/DanLi-BU/WRF/releases/tag/AH_final
 
 ## Data reference
 
@@ -38,9 +38,9 @@ https://github.com/DanLi-BU/WRF/tree/WRF_AH (tag: AH_final)
 
 
 ## Contributing modeling software
-| Model | Version | Repository Link | Tag | Zenodo |
-|-------|---------|-----------------|-----|-----|
-| WRF | 4.2.2 | https://github.com/DanLi-BU/WRF/tree/WRF_AH | AH_final | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13259039.svg)](https://doi.org/10.5281/zenodo.13259039) |
+| Model | Version | Zenodo |
+|-------|---------|-----|
+| WRF | 4.2.2 | [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13259039.svg)](https://doi.org/10.5281/zenodo.13259039) |
 
 
 ## Reproduce my experiment
